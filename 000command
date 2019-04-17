@@ -1,4 +1,4 @@
-git add filename           添加文件
+git add <file>           添加文件
 git commit -m "添加说明"    提交文件
 git status                 查看状态
 git log                     查看历史
@@ -6,3 +6,5 @@ git log --pretty=oneline    简洁版历史
 git reset --hard HEAD^      回退上一个版本
 git reset --hard 37cec      回退到37cec开头的版本
 git reflog                  记住每一个命令
+git checkout -- <file>      丢弃工作区的修改
+$ git reset HEAD <file>     撤销暂存区的修改撤

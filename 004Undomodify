@@ -1,0 +1,98 @@
+已经git add readme.txt此时的内容为：
+
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+我要撤销修改
+
+此时git status:
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+提示我可以提交
+
+我删除掉readme.txt中最后一行，
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   000command
+        modified:   readme.txt
+ 仍然提示我可以提交，由于我删除readme.txt最后一行后文件内容与上一次commit后一样，所以
+ 提示我-- <file> 丢弃工作区的修改
+
+ 命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+
+git checkout -- readme.txt 之后readme.txt 的内容
+
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+我要撤销修改
+
+所以他撤回到了最后一次add 或者commit中去了那么也就是说，只要没有add 或者commit 由于胡乱修改想要回到
+最新一次add 或者commit 的话，只需要git checkout -- <file> 命令即可
+
+如果已经add 了怎么办
+在commit之前，你发现了这个问题。用git status查看一下，修改只是添加到了暂存区，还没有提交：
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+git 告诉我们git reset HEAD <file>可以把暂存区修改撤销掉(unstage),重新放回工作区
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$ git reset HEAD readme.txt
+Unstaged changes after reset:
+M       000command
+M       readme.txt
+好奇怪，为什么回退了我两个文件
+
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   000command
+        modified:   readme.txt
+此时提示我修改了两个文件，我的理解是这样的，git 撤销了add也就是暂存区的文件，但是对于工作区的文件
+并没有进行修改，也就是我现在看到的readme.txt 和 000commad 文件并没有修改，所以里面仍然是我添加了
+“我要撤销修改”这句话的内容，所以提示我修改了，那么通过
+git checkout -- readme.txt 那么他就会修改工作区，也就是我现在看到的文件了
+果然
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   000command
+现在只有000command文件提示修改了，工作区的readme.txt已经没有“我要撤销修改”这句话了
+
+如果推送到远程版本库那么就gg了
+
+
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令
+git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推
+送到远程库。
