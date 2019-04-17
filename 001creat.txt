@@ -1,0 +1,15 @@
+git init 初始化一个Git 仓库
+
+
+git add readme.txt
+    用git add 命令将文件添加到仓库。
+
+git commit -m "wrote a readme file"
+    用命令git commit告诉Git，把文件提交到仓库：
+    -m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，
+        这样你就能从历史记录里方便地找到改动记录。
+
+因为commit可以一次提交很多文件，所以你可以多次add不同的文件，比如：
+$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m "add 3 files."
