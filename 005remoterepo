@@ -1,0 +1,12 @@
+首先要登陆git网站，在网站上面新建一个仓库，注意不是project
+
+
+然后本地
+git remote add origin https://github.com/fylovezx/gitlearn.git
+
+然后
+git push -u origin master
+可以用 git rm origin删除分支
+
+最后commit之后用
+git push origin master 就可以本地修改推送至gitHub
