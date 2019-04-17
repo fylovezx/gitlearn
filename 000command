@@ -24,3 +24,5 @@ git branch -d <name>        删除分支
 git log --graph             查看分支合并图
 
 .gitignore                  输入需要忽略的文件名
+git add -f <file>           强制添加到git
+git check-ignore -v <file>  查看为什么没有添加文件
