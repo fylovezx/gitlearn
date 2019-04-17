@@ -1,0 +1,55 @@
+git status ：时刻掌握仓库当前状态
+
+git diff filename :查看具体修改内容，对于没有提交的文件无效
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$ git diff 002timetraveler
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+由于此时并没有提交002timetraveler 所以没有用
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$ git diff readme.txt
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$
+没有修改文件，也会没有提示
+
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index d8036c1..013b5bc 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+\ No newline at end of file
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$
+修改文件之后进行了提示
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        002timetraveler
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+FY@DESKTOP-S2TI8S2 MINGW64 /f/Apache24/htdocs/gitlearn (master)
+$
+git status 之后显示了所有的状态
+
+然后git add ->git status 查看当前仓库状态 ->git commit 提交
