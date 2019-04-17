@@ -26,3 +26,11 @@ git log --graph             查看分支合并图
 .gitignore                  输入需要忽略的文件名
 git add -f <file>           强制添加到git
 git check-ignore -v <file>  查看为什么没有添加文件
+
+                            配置别名
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+git config --global alias.unstage 'reset HEAD'
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
