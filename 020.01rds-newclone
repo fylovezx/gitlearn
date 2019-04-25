@@ -1,0 +1,20 @@
+0.配置个人信息
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+1.clone
+
+新建www文件夹
+右键 git bash here
+git clone https://github.com/fylovezx/wanda
+就ok了，但是不知道为啥一开始犯错，然而错误的代码也没有拷贝下来
+
+2.push
+git remote add origin https://github.com/fylovezx/gitlearn.git
+
+然后
+git push -u origin master
+
+最后commit之后用
+git push origin master 就可以本地修改推送至gitHub
+
