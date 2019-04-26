@@ -1,3 +1,4 @@
+-----------------这是新电脑的操作
 0.配置个人信息
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
@@ -18,3 +19,13 @@ git push -u origin master
 最后commit之后用
 git push origin master 就可以本地修改推送至gitHub
 
+
+----------------这是旧电脑的操作
+新电脑推送之后，确保本地的都已经commit之后直接git pull 拉取
+
+那么也就是说，到这里，我就已经完成了普通的换电脑继续工作的流程。
+
+2019：04：26 122:52:00 
+3.接下来要试一下如果旧电脑进行了修改，commit之后，新电脑没有pull的情况下修改。
+    如何既保存新电脑的修改，又可以进行pull
+    要测试如果是修改的同一个文件会怎么样
